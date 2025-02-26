@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    protected $table = 'karyawan';
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
@@ -19,9 +21,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+//        'email',
+        'nip',
         'password',
     ];
+
+    protected $primaryKey = 'nip';
+    public $incrementing = false;
 
     /**
      * The attributes that should be hidden for serialization.
