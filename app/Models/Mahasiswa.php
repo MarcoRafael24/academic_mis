@@ -8,11 +8,13 @@ class Mahasiswa extends Model
 {
     protected $table = 'mahasiswa';
     protected $primaryKey = 'nrp';
-    protected $fillable = ['nrp', 'name','address' , 'email','phone','birth_date','Dosen_nik'];
+    protected $fillable = ['nrp', 'name','address' , 'email','phone','birth_date','dosen_nik'];
     protected $keyType = 'string';
     public $incrementing = false;
+
+    public $timestamps = false;
     public function dosenWali(){
 
-        return $this->belongsTo(Dosen::class,'Dosen_nik');
+        return $this->belongsTo(Dosen::class,'dosen_nik');
     }
 }
